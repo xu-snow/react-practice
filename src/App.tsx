@@ -1,11 +1,14 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { Link,Route,Switch } from 'react-router-dom';
+import asyncComponent from './async-component';
 
 import './App.css';
 import logo from './logo.svg';
 
-const routes: string[] = ['Context API', 'createRef API', 'forwardRef API', 'Component Lifecycle Changes'];
+const routes: string[] = ['Context API', 'createRef API', 'forwardRef API', 'Component Lifecycle Changes']
 const URL_REPLACE = /\s+/g;
+const urlRoutes = routes.map(route => route.replace(URL_REPLACE, '-').toLowerCase())
+
 
 class App extends React.Component {
   public render() {
@@ -16,16 +19,21 @@ class App extends React.Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <nav>
-          <ul style={{textAlign:'left'}}>
+          <ul style={{ textAlign: 'left' }}>
             {
-              routes.map(route => (
+              routes.map((route,index) => (
                 <li key={route}>
-                  <Link  to={route.replace(URL_REPLACE, '-').toLowerCase()}>{route}</Link>
+                  <Link to={urlRoutes[index]}>{route}</Link>
                 </li>
               ))
             }
           </ul>
         </nav>
+        <div>
+          <Switch>
+            <Route path='/context-api' component={asyncComponent(()=>import(/* webpackChunkName*/ "./pages/ContextAPI"))} />
+          </Switch>
+        </div>
       </div>
     );
   }
