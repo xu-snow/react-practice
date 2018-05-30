@@ -2,6 +2,11 @@
   "name": "react-v16.4",
   "version": "0.1.0",
   "private": true,
+  "description": "react-practice",
+  "keywords": [
+    "typescript"
+  ],
+  "author": "zhengxu",
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-jest": "^22.1.0",

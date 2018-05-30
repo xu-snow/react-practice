@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link,Route,Switch } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 import asyncComponent from './async-component';
 
 import './App.css';
@@ -13,15 +13,18 @@ const urlRoutes = routes.map(route => route.replace(URL_REPLACE, '-').toLowerCas
 class App extends React.Component {
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
+      <div>
+        <div className="App">
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <h1 className="App-title">Welcome to React</h1>
+          </header>
+
+        </div>
         <nav>
           <ul style={{ textAlign: 'left' }}>
             {
-              routes.map((route,index) => (
+              routes.map((route, index) => (
                 <li key={route}>
                   <Link to={urlRoutes[index]}>{route}</Link>
                 </li>
@@ -29,9 +32,9 @@ class App extends React.Component {
             }
           </ul>
         </nav>
-        <div>
+        <div className="main-flex">
           <Switch>
-            <Route path='/context-api' component={asyncComponent(()=>import(/* webpackChunkName*/ "./pages/ContextAPI"))} />
+            <Route path='/context-api' component={asyncComponent(() => import(/* webpackChunkName*/ "./pages/ContextAPI"))} />
           </Switch>
         </div>
       </div>

@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { GlobalStoreContext, initialState, IState } from '../../reactContext/index'
 
-
+type ActionType = 'UPDATE_THEME' | 'UPDATE_COLOR' | 'UPDATE_THEME_THEN_COLOR'
 interface IStateDispatch extends IState {
-  dispatch: (action: any) => void
+  dispatch: (action: { [key: string]: any, type: ActionType }) => void
 }
+
+
 
 
 class GlobalStoreContextProvider extends React.Component {
@@ -13,7 +15,7 @@ class GlobalStoreContextProvider extends React.Component {
     ...initialState
   };
   // reducer
-  public handleContextChange = (action: { type: string, theme: string, color: string }) => {
+  public handleContextChange = (action: { type: ActionType, theme: string, color: string }) => {
     switch (action.type) {
       case "UPDATE_THEME":
         return this.setState({
@@ -64,7 +66,7 @@ const SubComponent = (props: IStateDispatch) => {
   function handleUTC() {
     props.dispatch({
       color: "purple",
-      theme: "monokai",
+      theme: "dark",
       type: "UPDATE_THEME_THEN_COLOR",
     })
   }
@@ -96,7 +98,7 @@ export default class ContextAPI extends React.Component {
     return (
       <GlobalStoreContextProvider>
         <GlobalStoreContext.Consumer>
-          {(context:IState) => (
+          {(context: IState) => (
             <SubComponent
               theme={context.theme}
               color={context.color}
@@ -108,8 +110,3 @@ export default class ContextAPI extends React.Component {
     );
   }
 }
-
-
-
-
-
