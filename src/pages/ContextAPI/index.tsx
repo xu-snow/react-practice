@@ -6,9 +6,6 @@ interface IStateDispatch extends IState {
   dispatch: (action: { [key: string]: any, type: ActionType }) => void
 }
 
-
-
-
 class GlobalStoreContextProvider extends React.Component {
   // initialState
   public state = {
@@ -98,11 +95,11 @@ export default class ContextAPI extends React.Component {
     return (
       <GlobalStoreContextProvider>
         <GlobalStoreContext.Consumer>
-          {(context: IState) => (
+          {(context) => (
             <SubComponent
               theme={context.theme}
               color={context.color}
-              dispatch={(context as IStateDispatch).dispatch}
+              dispatch={context.dispatch!}
             />
           )}
         </GlobalStoreContext.Consumer>

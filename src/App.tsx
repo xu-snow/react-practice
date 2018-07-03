@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
-import asyncComponent from './async-component';
+// import asyncComponent from './async-component';
+import ContextAPI from './pages/ContextAPI';
+import CustomTextInput from './pages/CreateRefAPI';
 
 import './App.css';
 import logo from './logo.svg';
@@ -34,7 +36,8 @@ class App extends React.Component {
         </nav>
         <div className="main-flex">
           <Switch>
-            <Route path='/context-api' component={asyncComponent(() => import(/* webpackChunkName*/ "./pages/ContextAPI"))} />
+            <Route path='/context-api' component={ContextAPI} />
+            <Route path='/createref-api' component={CustomTextInput} />
           </Switch>
         </div>
       </div>
