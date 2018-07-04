@@ -4,7 +4,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import ContextAPI from './pages/ContextAPI';
 import CustomTextInput from './pages/CreateRefAPI';
 
-import './App.css';
+import './App.less';
 import logo from './logo.svg';
 
 const routes: string[] = ['Context API', 'createRef API', 'forwardRef API', 'Component Lifecycle Changes']
