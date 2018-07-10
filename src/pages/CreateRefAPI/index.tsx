@@ -33,6 +33,9 @@ export default class CustomTextInput extends React.Component {
           type="text" />
         <div style={{ textAlign: 'center', marginTop: 12 }}>
           <button onClick={this.focusTextInput}> focus</button>
+          {
+            this.props.children
+          }
         </div>
       </div>
     );
