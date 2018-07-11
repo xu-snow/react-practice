@@ -21,6 +21,7 @@
     "file-loader": "0.11.2",
     "fork-ts-checker-webpack-plugin": "^0.2.8",
     "fs-extra": "3.0.1",
+    "gh-pages": "^1.2.0",
     "html-webpack-plugin": "2.29.0",
     "jest": "22.4.2",
     "less": "^3.0.4",
@@ -53,6 +54,8 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
@@ -107,7 +110,7 @@
     ],
     "globals": {
       "ts-jest": {
-        "tsConfigFile": "/Users/zhengxu/Desktop/react-practice/react-v16.4/tsconfig.test.json"
+        "tsConfigFile": "/react111/react-practice/tsconfig.test.json"
       }
     }
   },
@@ -123,5 +126,6 @@
     "react",
     "react-dom",
     "react-router-dom"
-  ]
+  ],
+  "homepage": "http://xu-snow.github.io/react-practice"
 }
