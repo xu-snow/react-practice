@@ -1,6 +1,14 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs"
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "target": "es2015",
+    "mapRoot": "compiled",
+    "inlineSourceMap":true,
+    "outFile": "./compiled/**/*.js"
   }
 }
