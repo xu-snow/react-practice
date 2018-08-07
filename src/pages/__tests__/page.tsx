@@ -7,7 +7,6 @@ import ContextAPI from '../ContextAPI';
 
 it('context work fine', () => {
   const wrapper = mount(<ContextAPI />);
-  // expect(wrapper.find('div').first().hasClass('content-theme')).toEqual(true)
   expect(wrapper.find('.content-theme').at(0)).toHaveText(initialState.theme)
 
   wrapper.find('.change-all').first().simulate('click');

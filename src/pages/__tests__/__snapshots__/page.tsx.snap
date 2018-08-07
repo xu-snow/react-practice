@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`context work fine 1`] = `
+<ContextAPI>
+  <GlobalStoreContextProvider>
+    <SubComponent
+      color="purple"
+      dispatch={[Function]}
+      theme="dark"
+    >
+      <div>
+        <button
+          onClick={[Function]}
+        >
+          change theme
+        </button>
+        <div
+          className="content-theme"
+        >
+          dark
+        </div>
+        <button
+          onClick={[Function]}
+        >
+          change color
+        </button>
+        <div
+          className="content-color"
+        >
+          purple
+        </div>
+        <button
+          className="change-all"
+          onClick={[Function]}
+        >
+          change theme then color
+        </button>
+      </div>
+    </SubComponent>
+  </GlobalStoreContextProvider>
+</ContextAPI>
+`;

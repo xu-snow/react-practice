@@ -69,17 +69,18 @@ const SubComponent = (props: IStateDispatch) => {
   }
   return (
     <div>
-      <button onClick={handleUT} >
+      <button onClick={handleUT}  >
         change theme
       </button>
-      <div>{props.theme}</div>
+      <div className="content-theme">{props.theme}</div>
       {/* action */}
       <button onClick={handleUC} >
         change color
       </button>
-      <div>{props.color}</div>
+      <div className="content-color">{props.color}</div>
       {/* action */}
       <button
+        className="change-all"
         onClick={handleUTC}
       >
         change theme then color
