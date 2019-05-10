@@ -2,8 +2,8 @@ import * as React from 'react'
 import CustomTextInput from '../CreateRefAPI';
 /**   higher-order components */
 
-function logProps(WrappedComponent: React.ComponentClass) {
-  class LogProps extends React.Component<{ forwardRef?: React.Ref<any> }> {
+function logProps<P>(WrappedComponent: React.ComponentClass<P>) {
+  class LogProps extends React.Component<P & { forwardRef: React.Ref<any> }> {
     public componentDidUpdate(prevProps: any) {
       // tslint:disable:no-console
       console.log('old props:', prevProps);
@@ -12,11 +12,11 @@ function logProps(WrappedComponent: React.ComponentClass) {
 
     public render(): JSX.Element {
       const { forwardRef, ...rest } = this.props
-      return <WrappedComponent {...rest} ref={forwardRef} />;
+      return <WrappedComponent {...rest as P} ref={forwardRef} />;
     }
   }
 
-  return React.forwardRef((props, ref) => {
+  return React.forwardRef<any, P & { children?: React.ReactNode }>((props, ref) => {
     return <LogProps {...props} forwardRef={ref} />
   })
 }
@@ -42,10 +42,10 @@ export default class IncludeForWardRefCom extends React.Component<{}, { value: s
     }
   }
 
-  public handleClear=()=>{
+  public handleClear = () => {
     if (this.componentRef.current) {
       this.componentRef.current.textInput.current!.value = ''
-      this.setState({ value:'' })
+      this.setState({ value: '' })
     }
   }
 
@@ -54,7 +54,7 @@ export default class IncludeForWardRefCom extends React.Component<{}, { value: s
       <div>
         <label>value:{this.state.value}</label>
       </div>
-      <WrapCustomTextInput ref={this.componentRef} >
+      <WrapCustomTextInput  ref={this.componentRef} >
         <React.Fragment>
           <button onClick={this.handleClick}>commit</button>
           <button onClick={this.handleClear}>clear</button>

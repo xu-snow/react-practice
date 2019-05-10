@@ -41,8 +41,8 @@ class App extends React.Component {
             <Switch>
               <Route path='/context-api' component={ContextAPI} />
               <Route path='/createref-api' component={CustomTextInput} />
-              <Route path='/forwardref-api'  component={IncludeForWardRefCom}/>
-              <Route path='/component-new-lifecycle'  component={NewLifecycle}/>
+              <Route path='/forwardref-api' component={IncludeForWardRefCom} />
+              <Route path='/component-new-lifecycle' component={NewLifecycle} />
             </Switch>
           </div>
         </div>
@@ -51,4 +51,8 @@ class App extends React.Component {
   }
 }
 
+
+
 export default App;
+
+
