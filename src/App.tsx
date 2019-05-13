@@ -4,12 +4,13 @@ import { HashRouter, Link, Route, Switch } from 'react-router-dom';
 import ContextAPI from './pages/ContextAPI';
 import CustomTextInput from './pages/CreateRefAPI';
 import IncludeForWardRefCom from './pages/ForwardRef'
+import HookApp from './pages/Hook'
 import NewLifecycle from './pages/NewLifecycle'
 
 import './App.less';
 import logo from './logo.svg';
 
-const routes: string[] = ['Context API', 'createRef API', 'forwardRef API', 'Component New Lifecycle']
+const routes: string[] = ['Context API', 'createRef API', 'forwardRef API', 'Component New Lifecycle','Hook APP']
 const URL_REPLACE = /\s+/g;
 const urlRoutes = routes.map(route => route.replace(URL_REPLACE, '-').toLowerCase())
 
@@ -43,6 +44,7 @@ class App extends React.Component {
               <Route path='/createref-api' component={CustomTextInput} />
               <Route path='/forwardref-api' component={IncludeForWardRefCom} />
               <Route path='/component-new-lifecycle' component={NewLifecycle} />
+              <Route path='/hook-app' component={HookApp} />
             </Switch>
           </div>
         </div>
